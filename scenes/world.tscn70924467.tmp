@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b0wvqrr4y84dr"]
+
+[ext_resource type="Script" uid="uid://bk5g8bfvnvm0p" path="res://scripts/coordinate_plane.gd" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://dowmfewbh4aha" path="res://scripts/grid.gd" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://bf50i35fw320y" path="res://scenes/vector_field.tscn" id="3_71j4m"]
+[ext_resource type="PackedScene" uid="uid://ecbfsct6cr2g" path="res://scenes/VectorType/displacement_vector.tscn" id="5_71j4m"]
+
+[node name="World" type="Node2D" unique_id=687457608]
+
+[node name="CoordinatePlane" type="Node2D" parent="." unique_id=1588197266]
+script = ExtResource("1_nnsk1")
+
+[node name="Grid" type="Node2D" parent="CoordinatePlane" unique_id=1089076598]
+script = ExtResource("2_rwgxs")
+
+[node name="VectorField" parent="CoordinatePlane" unique_id=1142762075 instance=ExtResource("3_71j4m")]
+position = Vector2(8, 32)
+
+[node name="VectorObject" parent="CoordinatePlane/VectorField" unique_id=1441661124 instance=ExtResource("5_71j4m")]
+arrow_length = 240.0
+angle_degrees = -26.5
+can_move = true
+can_scale = true
+can_rotate = true

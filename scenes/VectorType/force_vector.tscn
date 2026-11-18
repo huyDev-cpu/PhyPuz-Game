@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://gsoc8vuhnu4a"]
+
+[ext_resource type="PackedScene" uid="uid://bnxsbapren08m" path="res://scenes/vector_object.tscn" id="1_pavel"]
+[ext_resource type="Script" uid="uid://br0tk2gcsxax7" path="res://scripts/vectors/type_vector/force_vector.gd" id="2_lfr2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_328js"]
+size = Vector2(240, 36)
+
+[node name="VectorObject" unique_id=1441661124 instance=ExtResource("1_pavel")]
+script = ExtResource("2_lfr2l")
+
+[node name="CollisionShape2D" parent="HitArea" parent_id_path=PackedInt32Array(1070964533) index="0" unique_id=295246318]
+shape = SubResource("RectangleShape2D_328js")
+
+[node name="MoveIcon" parent="Visual" parent_id_path=PackedInt32Array(198136268) index="0" unique_id=1267656517]
+position = Vector2(127.024826, -14.166622)
+
+[node name="ScaleIcon" parent="Visual" parent_id_path=PackedInt32Array(198136268) index="1" unique_id=909697437]
+position = Vector2(261.32083, -130.28976)
+rotation = -2.0333085
+
+[node name="RotateIcon" parent="Visual" parent_id_path=PackedInt32Array(198136268) index="2" unique_id=641038302]
+position = Vector2(261.32083, -130.28976)
+rotation = 1.1082841
+
+[node name="TypeLabel" parent="Visual" parent_id_path=PackedInt32Array(198136268) index="3" unique_id=1002425859]
+offset_left = 163.61351
+offset_top = -158.51524
+offset_right = 235.61351
+offset_bottom = -116.51524
+theme_override_colors/font_color = Color(0.78039217, 0.54509807, 1, 1)
+text = "F"

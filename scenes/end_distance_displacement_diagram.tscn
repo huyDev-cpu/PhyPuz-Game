@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/end_distance_displacement_diagram.gd" id="1_diagram"]
+[ext_resource type="PackedScene" uid="uid://ecbfsct6cr2g" path="res://scenes/VectorType/displacement_vector.tscn" id="2_vector"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="3_character"]
+
+[node name="DistanceDisplacementDiagram" type="Control"]
+custom_minimum_size = Vector2(580, 230)
+script = ExtResource("1_diagram")
+
+[node name="DisplacementVector" parent="." instance=ExtResource("2_vector")]
+position = Vector2(80, 165)
+arrow_length = 438.0
+angle_degrees = -16.6
+can_move = false
+can_scale = false
+can_rotate = false
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(80, 165)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("3_character")
+z_index = 4
+
+[node name="DisplacementLabel" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 8.0
+offset_right = 430.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0.32156864, 0.8392157, 1, 1)
+theme_override_font_sizes/font_size = 17
+text = "END_DISPLACEMENT"
+
+[node name="DistanceLabel" type="Label" parent="."]
+offset_left = 330.0
+offset_top = 176.0
+offset_right = 450.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0.90588236, 0.9137255, 0.9372549, 1)
+theme_override_font_sizes/font_size = 17
+text = "END_DISTANCE"

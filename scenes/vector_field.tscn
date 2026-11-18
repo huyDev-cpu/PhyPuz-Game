@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bf50i35fw320y"]
+
+[ext_resource type="Script" uid="uid://c2c6dcnrcwog5" path="res://scripts/vectors/vector_field.gd" id="1_i4b3w"]
+[ext_resource type="Script" uid="uid://buldjlrir1042" path="res://scripts/vectors/vector_addtion.gd" id="2_j568r"]
+
+[node name="VectorField" type="Node2D" unique_id=1142762075]
+position = Vector2(72, -320)
+script = ExtResource("1_i4b3w")
+
+[node name="VectorAddtion" type="Node2D" parent="." unique_id=1906100018]
+z_index = 5
+script = ExtResource("2_j568r")

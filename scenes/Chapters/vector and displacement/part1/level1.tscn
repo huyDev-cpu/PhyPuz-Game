@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://beyh3ocqq4mr6"]
+
+[ext_resource type="Script" uid="uid://decytc7vsyxb2" path="res://scripts/gameplay_menu.gd" id="1_lbx77"]
+[ext_resource type="Script" uid="uid://bk5g8bfvnvm0p" path="res://scripts/coordinate_plane.gd" id="2_aokt5"]
+[ext_resource type="Script" uid="uid://dowmfewbh4aha" path="res://scripts/grid.gd" id="3_yatrj"]
+[ext_resource type="Script" uid="uid://bn2q625u55f56" path="res://scripts/movement_trail.gd" id="4_5gkwq"]
+[ext_resource type="PackedScene" path="res://scenes/portal_target.tscn" id="5_pvgox"]
+[ext_resource type="PackedScene" uid="uid://cghaaebnxrfho" path="res://scenes/character.tscn" id="6_j8t1x"]
+[ext_resource type="PackedScene" uid="uid://bf50i35fw320y" path="res://scenes/vector_field.tscn" id="7_v2hen"]
+[ext_resource type="PackedScene" uid="uid://ecbfsct6cr2g" path="res://scenes/VectorType/displacement_vector.tscn" id="8_c7yhx"]
+[ext_resource type="Script" uid="uid://b742kjyf70ita" path="res://scripts/coordinate_measurement.gd" id="9_dnkkr"]
+[ext_resource type="Script" uid="uid://d2ecpaarqfy2c" path="res://scripts/coordinate_info_panel.gd" id="10_87fh5"]
+[ext_resource type="PackedScene" path="res://scenes/end_overlay.tscn" id="11_overlay"]
+
+[node name="Level" type="Node2D" unique_id=1182640156]
+editor_description = "giới thiệu chơ chế vector độ dịch chuyển, cho kéo thả thoải mái, mà này không có sao "
+
+[node name="GameplayMenu" type="CanvasLayer" parent="." unique_id=1980121133]
+script = ExtResource("1_lbx77")
+show_play_button = true
+
+[node name="CoordinatePlane" type="Node2D" parent="." unique_id=1742498634]
+position = Vector2(128, 612)
+script = ExtResource("2_aokt5")
+
+[node name="Grid" type="Node2D" parent="CoordinatePlane" unique_id=1211224093]
+script = ExtResource("3_yatrj")
+
+[node name="MovementTrail" type="Node2D" parent="CoordinatePlane" unique_id=1336058371]
+script = ExtResource("4_5gkwq")
+
+[node name="PortalTarget" parent="CoordinatePlane" unique_id=1309180288 instance=ExtResource("5_pvgox")]
+position = Vector2(681, -326)
+
+[node name="Character" parent="CoordinatePlane" unique_id=1457488811 instance=ExtResource("6_j8t1x")]
+position = Vector2(134, -120)
+
+[node name="VectorField" parent="CoordinatePlane" unique_id=825983364 instance=ExtResource("7_v2hen")]
+
+[node name="DisplacementVector" parent="CoordinatePlane/VectorField" unique_id=855159029 instance=ExtResource("8_c7yhx")]
+position = Vector2(195, 65)
+
+[node name="CoordinateMeasurement" type="Node2D" parent="CoordinatePlane" unique_id=1838930671]
+z_index = 20
+script = ExtResource("9_dnkkr")
+show_displacement_arrow = false
+
+[node name="CoordinateInfoPanel" type="CanvasLayer" parent="." unique_id=1686743342]
+layer = 2
+script = ExtResource("10_87fh5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1828082240]
+position = Vector2(640, 360)
+
+[node name="EndOverlay" parent="." instance=ExtResource("11_overlay")]
+next_stage_scene_path = "res://scenes/Chapters/vector and displacement/part2/tutorial3.tscn"

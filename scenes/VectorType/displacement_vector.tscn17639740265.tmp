@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ecbfsct6cr2g"]
+
+[ext_resource type="PackedScene" uid="uid://bnxsbapren08m" path="res://scenes/vector_object.tscn" id="1_lrwor"]
+[ext_resource type="Script" uid="uid://ci5rl7s8qr3rk" path="res://scripts/vectors/type_vector/displacement_vector.gd" id="2_pf25p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf25p"]
+size = Vector2(467, 36)
+
+[node name="VectorObject" unique_id=1441661124 instance=ExtResource("1_lrwor")]
+script = ExtResource("2_pf25p")
+
+[node name="CollisionShape2D" parent="HitArea" parent_id_path=PackedInt32Array(1070964533) index="0" unique_id=295246318]
+shape = SubResource("RectangleShape2D_pf25p")
+
+[node name="TypeLabel" parent="Visual" parent_id_path=PackedInt32Array(198136268) index="3" unique_id=1002425859]
+theme_override_colors/font_color = Color(0.32156864, 0.8392157, 1, 1)
+text = "d"

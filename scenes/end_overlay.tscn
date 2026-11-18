@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh1ho3vsajwty"]
+
+[ext_resource type="Script" path="res://scripts/end_overlay.gd" id="1_overlay"]
+
+[node name="EndOverlay" type="CanvasLayer" unique_id=1181217675]
+script = ExtResource("1_overlay")

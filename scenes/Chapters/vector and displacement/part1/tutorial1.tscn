@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b0wvqrr4y84dr"]
+
+[ext_resource type="Script" uid="uid://decytc7vsyxb2" path="res://scripts/gameplay_menu.gd" id="1_rlpsr"]
+[ext_resource type="Script" uid="uid://bk5g8bfvnvm0p" path="res://scripts/coordinate_plane.gd" id="2_b2iwd"]
+[ext_resource type="Script" uid="uid://dowmfewbh4aha" path="res://scripts/grid.gd" id="3_vbngl"]
+[ext_resource type="Script" uid="uid://bn2q625u55f56" path="res://scripts/movement_trail.gd" id="4_3dmch"]
+[ext_resource type="PackedScene" uid="uid://cghaaebnxrfho" path="res://scenes/character.tscn" id="5_31sph"]
+[ext_resource type="PackedScene" path="res://scenes/portal_target.tscn" id="6_wtkte"]
+[ext_resource type="PackedScene" uid="uid://bf50i35fw320y" path="res://scenes/vector_field.tscn" id="7_015hx"]
+[ext_resource type="Script" uid="uid://b742kjyf70ita" path="res://scripts/coordinate_measurement.gd" id="8_51r7r"]
+[ext_resource type="Script" uid="uid://d2ecpaarqfy2c" path="res://scripts/coordinate_info_panel.gd" id="9_h3pn8"]
+[ext_resource type="PackedScene" uid="uid://bh1ho3vsajwty" path="res://scenes/end_overlay.tscn" id="11_overlay"]
+
+[node name="Level2" type="Node2D" unique_id=687457608]
+editor_description = "màn một cho người chơi kéo tự do để giớ thiệu sự khác nhau giữa quảng đường và độ dịch chuyển.
+mà thứ nhất có 1 sao"
+
+[node name="CoordinatePlane" type="Node2D" parent="." unique_id=1588197266]
+position = Vector2(128, 612)
+script = ExtResource("2_b2iwd")
+
+[node name="Grid" type="Node2D" parent="CoordinatePlane" unique_id=1089076598]
+script = ExtResource("3_vbngl")
+
+[node name="MovementTrail" type="Node2D" parent="CoordinatePlane" unique_id=1954940882]
+script = ExtResource("4_3dmch")
+
+[node name="Character" parent="CoordinatePlane" unique_id=1785119205 instance=ExtResource("5_31sph")]
+position = Vector2(180, -120)
+
+[node name="PortalTarget" parent="CoordinatePlane" unique_id=42590936 instance=ExtResource("6_wtkte")]
+position = Vector2(686, -366)
+
+[node name="VectorField" parent="CoordinatePlane" unique_id=1142762075 instance=ExtResource("7_015hx")]
+position = Vector2(0, 0)
+
+[node name="CoordinateMeasurement" type="Node2D" parent="CoordinatePlane" unique_id=1271836434]
+z_index = 20
+script = ExtResource("8_51r7r")
+
+[node name="CoordinateInfoPanel" type="CanvasLayer" parent="." unique_id=1029373274]
+layer = 2
+script = ExtResource("9_h3pn8")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1200545767]
+position = Vector2(640, 360)
+
+[node name="GameplayMenu" type="CanvasLayer" parent="." unique_id=1427424557]
+script = ExtResource("1_rlpsr")
+
+[node name="EndOverlay" parent="." unique_id=1166741033 instance=ExtResource("11_overlay")]
+next_stage_scene_path = "res://scenes/Chapters/vector and displacement/part1/tutorial2.tscn"

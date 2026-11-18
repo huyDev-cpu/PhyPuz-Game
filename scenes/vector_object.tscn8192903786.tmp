@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bnxsbapren08m"]
+
+[ext_resource type="Script" uid="uid://drij0tiuv7530" path="res://scripts/vector_object.gd" id="1_w7wd4"]
+[ext_resource type="Texture2D" uid="uid://c0j0digmnyxsp" path="res://assets/IconControl/move.svg" id="2_k3o4h"]
+[ext_resource type="Script" uid="uid://dpl75vwd3xp2o" path="res://scripts/vectors/vector_visual.gd" id="2_nvph7"]
+[ext_resource type="Texture2D" uid="uid://feuneinxigh5" path="res://assets/IconControl/scale.svg" id="3_nvph7"]
+[ext_resource type="Texture2D" uid="uid://c11k3sw7yt4k" path="res://assets/IconControl/rotate.svg" id="4_tj8os"]
+[ext_resource type="Script" uid="uid://6jhxh1bw8jcv" path="res://scripts/vectors/vector_interaction.gd" id="6_nvph7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7wd4"]
+size = Vector2(240, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7wsd"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7rlf"]
+radius = 48.0
+
+[node name="VectorObject" type="Node2D" unique_id=1441661124]
+script = ExtResource("1_w7wd4")
+metadata/_edit_horizontal_guides_ = [40.0]
+
+[node name="HitArea" type="Area2D" parent="." unique_id=1070964533]
+rotation = -0.46251225
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=295246318]
+position = Vector2(120, 0)
+shape = SubResource("RectangleShape2D_w7wd4")
+
+[node name="OriginTrigger" type="Area2D" parent="." unique_id=871787667]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OriginTrigger" unique_id=1767583000]
+shape = SubResource("CircleShape2D_s7wsd")
+
+[node name="TipHandle" type="Area2D" parent="." unique_id=1723113016]
+z_index = 1
+position = Vector2(214.78424, -107.08747)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TipHandle" unique_id=523622172]
+shape = SubResource("CircleShape2D_s7rlf")
+
+[node name="Visual" type="Node2D" parent="." unique_id=198136268]
+script = ExtResource("2_nvph7")
+
+[node name="MoveIcon" type="Sprite2D" parent="Visual" unique_id=1267656517]
+visible = false
+modulate = Color(0.875, 0.875, 0.875, 0.29)
+z_index = 2
+position = Vector2(-233.5, -43.99998)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_k3o4h")
+
+[node name="ScaleIcon" type="Sprite2D" parent="Visual" unique_id=909697437]
+visible = false
+modulate = Color(0.875, 0.875, 0.875, 0.29)
+z_index = 2
+position = Vector2(-519, 4.537242e-05)
+rotation = -4.712389
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_nvph7")
+
+[node name="RotateIcon" type="Sprite2D" parent="Visual" unique_id=641038302]
+visible = false
+modulate = Color(0.875, 0.875, 0.875, 0.29)
+z_index = 3
+position = Vector2(-519, 4.537242e-05)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_tj8os")
+
+[node name="TypeLabel" type="Label" parent="Visual" unique_id=1002425859]
+offset_left = -503.0
+offset_top = 13.000042
+offset_right = -431.0
+offset_bottom = 55.000042
+theme_override_colors/font_color = Color(0.4862745, 0.78039217, 0.69411767, 1)
+theme_override_font_sizes/font_size = 26
+text = "v"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interaction" type="Node" parent="." unique_id=558300006]
+script = ExtResource("6_nvph7")

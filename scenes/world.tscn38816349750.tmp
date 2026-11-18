@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b0wvqrr4y84dr"]
+
+[ext_resource type="Script" uid="uid://bk5g8bfvnvm0p" path="res://scripts/coordinate_plane.gd" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://dowmfewbh4aha" path="res://scripts/grid.gd" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://bf50i35fw320y" path="res://scenes/vector_field.tscn" id="3_71j4m"]
+[ext_resource type="PackedScene" uid="uid://bnxsbapren08m" path="res://scenes/vector_object.tscn" id="3_k0juu"]
+
+[node name="World" type="Node2D" unique_id=687457608]
+
+[node name="CoordinatePlane" type="Node2D" parent="." unique_id=1588197266]
+script = ExtResource("1_nnsk1")
+
+[node name="Grid" type="Node2D" parent="CoordinatePlane" unique_id=1089076598]
+script = ExtResource("2_rwgxs")
+
+[node name="VectorField2" parent="CoordinatePlane" unique_id=1142762075 instance=ExtResource("3_71j4m")]
+position = Vector2(8, 32)
+
+[node name="velocity1" parent="CoordinatePlane/VectorField2" unique_id=1441661124 instance=ExtResource("3_k0juu")]
+position = Vector2(96, 200)
+arrow_length = 488.0
+can_move = true
+can_scale = true
+
+[node name="velocity2" parent="CoordinatePlane/VectorField2" unique_id=603756573 instance=ExtResource("3_k0juu")]
+position = Vector2(-56, -48)
+can_move = true
+can_scale = true
+can_rotate = false
+
+[node name="velocity3" parent="CoordinatePlane/VectorField2" unique_id=1592760045 instance=ExtResource("3_k0juu")]
+position = Vector2(120, -264)
+can_move = true
+can_scale = true
+
+[node name="force1" parent="CoordinatePlane/VectorField2" unique_id=301325838 instance=ExtResource("3_k0juu")]
+position = Vector2(368, -112)
+vector_type = 3
+can_move = true
+can_scale = true
+
+[node name="force2" parent="CoordinatePlane/VectorField2" unique_id=1329463149 instance=ExtResource("3_k0juu")]
+vector_type = 3
